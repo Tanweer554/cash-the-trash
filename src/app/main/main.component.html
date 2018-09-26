@@ -1,0 +1,94 @@
+<div>
+    <table class="table table-bordered">
+			<tr class="info">
+			<th>S.No</th>
+			<th>Name</th>
+			
+			<th>Course</th>
+			<th>Fee</th>
+			<th>D.O.B</th>
+			<th>Age</th>
+	   	</tr>
+	     
+	    <tr class="warning" *ngFor="let x of emp; let i=index;">
+	     	<td>{{i+1}}</td>
+	     	<td>{{x.name|uppercase}}</td>
+	     	<td>{{x.course|lowercase}}</td>
+			 <td>{{x.fee|currency:"&#8377;"}}</td>
+			 <td>{{x.dob|date}}</td>
+			 <td>{{x.dob|age}}</td>
+	     </tr>
+		</table>
+	</div>
+	<hr>
+	<h1 [style.color]="'red'">first syntax of ngstyle</h1>
+	<h1 [ngStyle]="{'color':'red','background':'brown'}">second syntax of ngstyle</h1>
+	<h1 ngClass="style1">third syntax of ngstyle</h1>
+	<hr>
+	<ul *ngFor="let x of emp">
+		<li *ngIf="x.fee>10000">{{x.name}}</li>
+	</ul>
+<ul *ngFor="let x of emp" [ngSwitch]="x.course">
+	<li *ngSwitchCase="'js'" class="text-danger">{{x.name}}</li>
+</ul><hr>
+
+
+<p appCDir>custom directive model-1</p><br>
+<p appCDir>custom directive model-2</p><br>
+<input type="radio" name="same" (click)="color='violet'">violet
+<input type="radio" name="same" (click)="color='pink'">pink
+<input type="radio" name="same" (click)="color='gray'">gray
+<p [appCDir]="color" defaultcolor="red">cutom directive model-3</p>
+<p [appCDir]="color" defaultcolor="yellow">cutom directive model-3-------------------------</p>
+
+
+<p appCDir="purple">this is me</p>
+<p [appCDir]="'brown'">this is me</p><br>
+<div>
+	<table class="table table-bordered">
+		<tr class="info">
+	    <th>S.No</th>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Profession</th>
+		<th>Remuneration</th>
+	
+	   </tr>
+	 
+	<tr class="warning" *ngFor="let y of userdata; let i=index;">
+		 <td>{{i+1}}</td>
+		 <td>{{y.id}}</td>
+		 <td>{{y.name}}</td>
+		 <td>{{y.profession}}</td>
+		 <td>{{y.remuneration}}</td>
+	 </tr>
+	</table>
+</div>
+
+ <div>
+     <p>todaydate:{{todo|date}}</p>            
+</div>
+
+<div *ngIf="httpdata.length>0; else nodata">
+	<table class="table table-bordered">
+		<tr class="info">
+		<th>Id</th>
+		<th>Title</th>
+		<th>Body</th>
+	   </tr>
+	 
+	<tr class="warning" *ngFor="let z of httpdata;">
+		
+		 <td>{{z.id}}</td>
+		 <td>{{z.title}}</td>
+		 <td>{{z.body}}</td>
+		 
+	 </tr>
+	</table>
+</div>
+<ng-template #nodata>
+  <p class="alert alert-danger text-center">{{errorMessage}}</p>
+</ng-template>
+
+
+  

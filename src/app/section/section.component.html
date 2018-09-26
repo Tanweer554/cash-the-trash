@@ -1,0 +1,11 @@
+<div class="container">
+     <div class="col-md-4" *ngFor="let y of sub;">
+     	<h2>{{y.title}}</h2>
+		<img src="{{y.logo}}" width="100%">
+		<p class="text-justify">{{y.description}}</p>
+	</div>
+    <button class="btn btn-primary btn-lg" (click)="count=count+1">+</button>
+	{{count}}
+	<button class="btn btn-primary btn-lg" (click)="count=count-1">-</button>
+</div>
+<br>
